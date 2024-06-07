@@ -99,6 +99,12 @@
 
 // ordenar(arrayNumeros);
 
+let nome = prompt("Qual o nome do aluno?");
+let idade = prompt("Qual a idade do aluno?");
+let serie = prompt("Qual a série do aluno?");
+let nomeEscola = prompt("Qual o nome da escola?");
+let materiaFavorita = prompt("Qual a sua matéria favorita?");
+
 function novaLinha() {
   let curso = pegarMateriaEnotas();
   criarLinha(curso);
