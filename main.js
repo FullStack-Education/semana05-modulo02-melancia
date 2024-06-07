@@ -99,11 +99,27 @@
 
 // ordenar(arrayNumeros);
 
-let nome = prompt("Qual o nome do aluno?");
-let idade = prompt("Qual a idade do aluno?");
-let serie = prompt("Qual a série do aluno?");
-let nomeEscola = prompt("Qual o nome da escola?");
-let materiaFavorita = prompt("Qual a sua matéria favorita?");
+let nomeDados = prompt("Qual o nome do aluno?");
+let idadeDados = prompt("Qual a idade do aluno?");
+let serieDados = prompt("Qual a série do aluno?");
+let nomeEscolaDados = prompt("Qual o nome da escola?");
+let materiaFavoritaDados = prompt("Qual a sua matéria favorita?");
+
+let nomeId = document.getElementById("nome")
+let idadeId = document.getElementById("idade")
+let serieId = document.getElementById("serie")
+let escolaId = document.getElementById("escola")
+let materiaFavoritaId = document.getElementById("materiaFavorita") 
+
+function pegarDadosDeAluno() {
+nomeId.innerHTML = `<strong>Nome: </strong> ${nomeDados}`
+idadeId.innerHTML = `<strong>Idade: </strong> ${idadeDados}`
+serieId.innerHTML = `<strong>Série: </strong> ${serieDados}`
+escolaId.innerHTML = `<strong>Escola: </strong> ${nomeEscolaDados}`
+materiaFavoritaId.innerHTML = `<strong>Matéria Favorita: </strong> ${materiaFavoritaDados}`
+}
+
+pegarDadosDeAluno()
 
 function novaLinha() {
   let curso = pegarMateriaEnotas();
