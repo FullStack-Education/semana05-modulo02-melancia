@@ -1,100 +1,154 @@
-// - 1º Atividade
-function fazerMedia(notas) {
+// // - 1º Atividade
+// function fazerMedia(notas) {
+//   let soma = 0;
+
+//   for (let i = 0; i < notas.length; i++) {
+//     soma += notas[i];
+//   }
+
+//   return soma / notas.length;
+// }
+// let notas = [10, 1, 8, 9];
+
+// let media = fazerMedia(notas);
+// console.log(media);
+
+// // - 2° Atividade
+// function verificarSituacao(media) {
+//   if (media >= 7) {
+//     document.write("Parabéns você passou na média!");
+//   } else {
+//     document.write("Infelizmente você está de recuperação.");
+//   }
+//   console.log(media);
+// }
+
+// //verificarSituacao(media);
+
+// // - 3° Atividade
+// let nomes = ["Paulo", "Santiago", "Pedro", "Henrique"];
+
+// function listarNomes(nomes) {
+//   nomes.forEach((nome) => {
+//     document.write(nome + "<br/>");
+//   });
+// }
+
+// // listarNomes(nomes);
+
+// // - 4° Atividade
+// let numTabuada = 8;
+
+// for (let i = 0; i <= 10; i++) {
+//   document.write(numTabuada + " x " + i + " = " + numTabuada * i + "<br/>");
+// }
+
+// // - 5° Atividade
+// let nome = prompt("Qual o nome do aluno?");
+// let idade = prompt("Qual a idade do aluno?");
+// let serie = prompt("Qual a série do aluno?");
+// let nomeEscola = prompt("Qual o nome da escola?");
+// let materiaFavorita = prompt("Qual a sua matéria favorita?");
+// let imprimirOuNao = confirm("confirmar os dados inseridos?");
+
+// if (imprimirOuNao) {
+//   document.write("Nome: " + nome + "<br/>");
+//   document.write("Idade: " + idade + "<br/>");
+//   document.write("Série: " + serie + "° <br/>");
+//   document.write("Nome da escola: " + nomeEscola + "<br/>");
+//   document.write("Matéria favorita: " + materiaFavorita + "<br/>");
+// } else {
+//   alert("Os dados não foram confirmados");
+// }
+
+// // - 6° Atividade
+// let nomeMateria = prompt("Qual a matéria?");
+// let controlador = 1;
+// let arrayNotas = [];
+
+// while (controlador <= 4) {
+//   let notaEscolhida = Number(prompt(controlador + "° nota"));
+
+//   arrayNotas.push(notaEscolhida);
+//   controlador++;
+// }
+
+// let mediaNotas = fazerMedia(arrayNotas);
+// let curso = {
+//   materia: nomeMateria,
+//   notas: arrayNotas,
+// };
+
+// verificarSituacao(mediaNotas);
+
+// // - 7° Atividade
+// let arrayNumeros = [2, 7, 4, 6, 1];
+
+// function ordenar(arrayNumeros) {
+//   let numeroMaior = 0;
+//   for (let i = 0; i < arrayNumeros.length; i++) {
+//     let isNumeroFinal = i >= arrayNumeros.length ? true : false;
+//     debugger;
+//     if (arrayNumeros[i] > numeroMaior && !isNumeroFinal) {
+//       numeroMaior = arrayNumeros[i];
+//     }
+//   }
+
+//   console.log("O maior número é " + numeroMaior);
+// }
+
+// ordenar(arrayNumeros);
+
+function novaLinha() {
+  let curso = pegarMateriaEnotas();
+  criarLinha(curso);
+}
+
+function fazerMedia (notas) {
   let soma = 0;
 
   for (let i = 0; i < notas.length; i++) {
-    soma += notas[i];
+      soma += notas[i];
   }
 
   return soma / notas.length;
 }
-let notas = [10, 1, 8, 9];
 
-let media = fazerMedia(notas);
-console.log(media);
+function pegarMateriaEnotas() {
+  let nomeMateria = prompt("Qual a matéria?");
+  let controlador = 1;
+  let arrayNotas = [];
 
-// - 2° Atividade
-function verificarSituacao(media) {
-  if (media >= 7) {
-    document.write("Parabéns você passou na média!");
-  } else {
-    document.write("Infelizmente você está de recuperação.");
-  }
-  console.log(media);
-}
+  while (controlador <= 4) {
+      let notaEscolhida = Number(prompt(controlador + "° nota"));
 
-//verificarSituacao(media);
-
-// - 3° Atividade
-let nomes = ["Paulo", "Santiago", "Pedro", "Henrique"];
-
-function listarNomes(nomes) {
-  nomes.forEach((nome) => {
-    document.write(nome + "<br/>");
-  });
-}
-
-// listarNomes(nomes);
-
-// - 4° Atividade
-let numTabuada = 8;
-
-for (let i = 0; i <= 10; i++) {
-  document.write(numTabuada + " x " + i + " = " + numTabuada * i + "<br/>");
-}
-
-// - 5° Atividade
-let nome = prompt("Qual o nome do aluno?");
-let idade = prompt("Qual a idade do aluno?");
-let serie = prompt("Qual a série do aluno?");
-let nomeEscola = prompt("Qual o nome da escola?");
-let materiaFavorita = prompt("Qual a sua matéria favorita?");
-let imprimirOuNao = confirm("confirmar os dados inseridos?");
-
-if (imprimirOuNao) {
-  document.write("Nome: " + nome + "<br/>");
-  document.write("Idade: " + idade + "<br/>");
-  document.write("Série: " + serie + "° <br/>");
-  document.write("Nome da escola: " + nomeEscola + "<br/>");
-  document.write("Matéria favorita: " + materiaFavorita + "<br/>");
-} else {
-  alert("Os dados não foram confirmados");
-}
-
-// - 6° Atividade
-let nomeMateria = prompt("Qual a matéria?");
-let controlador = 1;
-let arrayNotas = [];
-
-while (controlador <= 4) {
-  let notaEscolhida = Number(prompt(controlador + "° nota"));
-
-  arrayNotas.push(notaEscolhida);
-  controlador++;
-}
-
-let mediaNotas = fazerMedia(arrayNotas);
-let curso = {
-  materia: nomeMateria,
-  notas: arrayNotas,
-};
-
-verificarSituacao(mediaNotas);
-
-// - 7° Atividade
-let arrayNumeros = [2, 7, 4, 6, 1];
-
-function ordenar(arrayNumeros) {
-  let numeroMaior = 0;
-  for (let i = 0; i < arrayNumeros.length; i++) {
-    let isNumeroFinal = i >= arrayNumeros.length ? true : false;
-    debugger;
-    if (arrayNumeros[i] > numeroMaior && !isNumeroFinal) {
-      numeroMaior = arrayNumeros[i];
-    }
+      arrayNotas.push(notaEscolhida);
+      controlador++;
   }
 
-  console.log("O maior número é " + numeroMaior);
+
+  let mediaNotas = fazerMedia(arrayNotas);
+  let curso = {
+      materia: nomeMateria,
+      notas: arrayNotas,
+      media: mediaNotas
+  };
+
+  return curso;
 }
 
-ordenar(arrayNumeros);
+function criarLinha(curso) {
+  let tbody = document.querySelector("tbody");
+  let linha = `
+      <tr>
+          <td>${curso.materia}</td>
+          <td>${curso.notas[0].toFixed(1)}</td>
+          <td>${curso.notas[1].toFixed(1)}</td>
+          <td>${curso.notas[2].toFixed(1)}</td>
+          <td>${curso.notas[3].toFixed(1)}</td>
+          <td id="mediaMateria">${curso.media.toFixed(1)}</td>
+      </tr>
+  `;
+
+  tbody.innerHTML += linha;
+}
