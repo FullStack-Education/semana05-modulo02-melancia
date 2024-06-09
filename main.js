@@ -136,6 +136,8 @@ function fazerMedia (notas) {
   return soma / notas.length;
 }
 
+const mediasGerais = [];
+
 function pegarMateriaEnotas() {
   let nomeMateria = prompt("Qual a matéria?");
   let controlador = 1;
@@ -148,13 +150,14 @@ function pegarMateriaEnotas() {
       controlador++;
   }
 
-
   let mediaNotas = fazerMedia(arrayNotas);
   let curso = {
       materia: nomeMateria,
       notas: arrayNotas,
       media: mediaNotas
   };
+
+  mediasGerais.push(curso.media);
 
   return curso;
 }
@@ -168,9 +171,26 @@ function criarLinha(curso) {
           <td>${curso.notas[1].toFixed(1)}</td>
           <td>${curso.notas[2].toFixed(1)}</td>
           <td>${curso.notas[3].toFixed(1)}</td>
-          <td id="mediaMateria">${curso.media.toFixed(1)}</td>
+          <td class="mediaMateria">${curso.media.toFixed(1)}</td>
       </tr>
   `;
 
   tbody.innerHTML += linha;
+
+
+  let geralMediaGeral = calcMediaGeral(mediasGerais);
+  insereMediaGeral(geralMediaGeral);
+}
+
+
+function calcMediaGeral(arrayMedias) {
+  let media = arrayMedias.reduce(function(total, nota) {
+    return total + nota;
+  }, 0)
+  return media / arrayMedias.length;
+}
+
+function insereMediaGeral(media) {
+  let elementoMedia = document.querySelector('#media-geral');
+  elementoMedia.innerHTML = `<b>${media.toFixed(2)}</b>`
 }
