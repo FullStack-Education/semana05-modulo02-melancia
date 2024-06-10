@@ -144,22 +144,41 @@ function pegarMateriaEnotas() {
   let arrayNotas = [];
 
   while (controlador <= 4) {
-      let notaEscolhida = Number(prompt(controlador + "° nota"));
+      let notaEscolhida = prompt(controlador + "° nota");
 
-      arrayNotas.push(notaEscolhida);
-      controlador++;
+      notaEscolhida = Number(trocarVirgulaPorPonto(notaEscolhida));
+
+      if (isNaN(notaEscolhida)) {
+        alert("Você não inseriu um valor númerio para a nota. Por favor, insira novamente uma matérias e suas notas.");
+        break;
+      } else {
+          arrayNotas.push(notaEscolhida);
+          controlador++;
+      }      
   }
 
-  let mediaNotas = fazerMedia(arrayNotas);
-  let curso = {
+  if (arrayNotas.length === 4) {
+    let mediaNotas = fazerMedia(arrayNotas);
+    let curso = {
       materia: nomeMateria,
       notas: arrayNotas,
       media: mediaNotas
-  };
+    };
 
-  mediasGerais.push(curso.media);
+    mediasGerais.push(curso.media);
+    
+    return curso;
+  } else {
+    return null;
+  }   
+}
 
-  return curso;
+function trocarVirgulaPorPonto(valorNota) {
+  if (valorNota.includes(',')) {
+    return valorNota.replace(',', '.');
+  } else {
+    return valorNota;
+  }
 }
 
 function criarLinha(curso) {
@@ -192,5 +211,5 @@ function calcMediaGeral(arrayMedias) {
 
 function insereMediaGeral(media) {
   let elementoMedia = document.querySelector('#media-geral');
-  elementoMedia.innerHTML = `<b>${media.toFixed(2)}</b>`
+  elementoMedia.innerHTML = `<b>${media.toFixed(1)}</b>`
 }
