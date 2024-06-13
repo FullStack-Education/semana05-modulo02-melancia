@@ -137,6 +137,7 @@ function fazerMedia (notas) {
 }
 
 const mediasGerais = [];
+const arrayMediasMaterias = [];
 
 function pegarMateriaEnotas() {
   let nomeMateria = prompt("Qual a matéria?");
@@ -144,22 +145,45 @@ function pegarMateriaEnotas() {
   let arrayNotas = [];
 
   while (controlador <= 4) {
-      let notaEscolhida = Number(prompt(controlador + "° nota"));
+    let notaEscolhida = prompt(controlador + "° nota");
 
-      arrayNotas.push(notaEscolhida);
-      controlador++;
+    notaEscolhida = Number(trocarVirgulaPorPonto(notaEscolhida));
+
+    if (isNaN(notaEscolhida)) {
+      alert("Você não inseriu um valor númerio para a nota. Por favor, insira novamente uma matérias e suas notas.");
+      break;
+
+    } else {
+        arrayNotas.push(notaEscolhida);
+        controlador++;
+    }
   }
 
-  let mediaNotas = fazerMedia(arrayNotas);
-  let curso = {
+  if (arrayNotas.length === 4) {
+    let mediaNotas = fazerMedia(arrayNotas);
+    arrayMediasMaterias.push(mediaNotas);
+
+    let curso = {
       materia: nomeMateria,
       notas: arrayNotas,
       media: mediaNotas
-  };
+    };
 
-  mediasGerais.push(curso.media);
+    mediasGerais.push(curso.media);
+    
+    return curso;
 
-  return curso;
+  } else {
+    return null;
+  }     
+}
+
+function trocarVirgulaPorPonto(valorNota) {
+  if (valorNota.includes(',')) {
+    return valorNota.replace(',', '.');
+  } else {
+    return valorNota;
+  }
 }
 
 function criarLinha(curso) {
@@ -179,7 +203,10 @@ function criarLinha(curso) {
 
 
   let geralMediaGeral = calcMediaGeral(mediasGerais);
+  let geralMaiorNota = ordenar(arrayMediasMaterias);
+
   insereMediaGeral(geralMediaGeral);
+  insereMaiorMedia(geralMaiorNota);
 }
 
 
@@ -194,3 +221,21 @@ function insereMediaGeral(media) {
   let elementoMedia = document.querySelector('#media-geral');
   elementoMedia.innerHTML = `<b>${media.toFixed(2)}</b>`
 }
+
+function insereMaiorMedia(media) {
+  let elementoMaiorMedia = document.querySelector('#maior-media');
+  elementoMaiorMedia.innerHTML = `<b>${media.toFixed(1)}</b>`
+}
+
+function ordenar(arrayNumeros) {
+  let numeroMaior = 0;
+  for (let i = 0; i < arrayNumeros.length; i++) {
+    let isNumeroFinal = i >= arrayNumeros.length ? true : false;
+    debugger;
+    if (arrayNumeros[i] > numeroMaior && !isNumeroFinal) {
+      numeroMaior = arrayNumeros[i];
+    }
+  }
+  return numeroMaior;
+}
+
