@@ -19,13 +19,13 @@
 Desenvolvimento de uma plataforma de acompanhamento de notas de um aluno em específico.
 
 ## Atividades
-- [x] [Ex 1 - Interface](#-m2s05-ex-1---interface)
-- [x] [Ex 2 - Coleta de Dados do Aluno](#-m2s05-ex-2---coleta-de-dados-do-aluno)
-- [x] [Ex 3 - Preenchimento dos Dados do Aluno](#-m2s05-ex-3---preenchimento-dos-dados-do-aluno)
-- [x] [Ex 4 - Adicionar Materia](#-m2s05-ex-4---adicionar-materia)
-- [x] [Ex 5 - Media Geral por Materia](#-m2s05-ex-5---media-geral-por-materia)
-- [x] [Ex 6 - Media Geral do Aluno](#-m2s05-ex-6---media-geral-do-aluno)
-- [x] [Ex 7 - Maior Media entre as Materias](#-m2s05-ex-7---maior-media-entre-as-materias)
+- [x] [Ex 1 - Interface]
+- [x] [Ex 2 - Coleta de Dados do Aluno]
+- [x] [Ex 3 - Preenchimento dos Dados do Aluno]
+- [x] [Ex 4 - Adicionar Materia]
+- [x] [Ex 5 - Media Geral por Materia]
+- [x] [Ex 6 - Media Geral do Aluno]
+- [x] [Ex 7 - Maior Media entre as Materias]
 
 ## [M2S05] Ex 1 - Interface
 Criação da interface conforme imagem abaixo: <br/>
